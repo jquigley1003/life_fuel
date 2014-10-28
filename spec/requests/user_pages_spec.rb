@@ -10,43 +10,44 @@ describe "users" do
     it { should have_title("Life!Fuel | Sign Up") }
     it { should have_selector('h1', text: "Get Ready to Find Your Life!Fuel") }
 
-    # describe "signup POST /users" do
-    #   let(:submit) { "Done" }
+    describe "signup POST /users" do
+      let(:submit) { "Sign Up Now!" }
 
-    #   context "valid information" do
-    #     before do
-    #       User.destroy_all
-    #       fill_in "Name",     with: "Jeff Quigley"
-    #       fill_in "Email",    with: "jeff.quigley@wavinghi.com"
-    #       fill_in "Password", with: "foobar"
-    #       fill_in "Password confirmation", with: "foobar"
-    #     end
+      context "valid information" do
+        before do
+          User.destroy_all
+          fill_in "First name",             with: "Jeff"
+          fill_in "Last name",              with: "Quigley"
+          fill_in "Email",                  with: "jeff.quigley@wavinghi.com"
+          fill_in "Password",               with: "foobar"
+          fill_in "Password confirmation",  with: "foobar"
+        end
 
-    #     it "creates user" do
-    #       expect { click_button submit }.to change(User, :count).by(1)
-    #     end
+        it "creates user" do
+          expect { click_button submit }.to change(User, :count).by(1)
+        end
         
-    #     describe "after submission" do
+        describe "after submission" do
 
-    #       before { click_button submit }
-    #         it { should have_title("Todo | Jeff") }
-    #         it { should have_selector('h1', text: "Jeff") }
-    #     end
-    #   end
+          before { click_button submit }
+            it { should have_title('Life!Fuel | Search') }
+            it { should have_selector('h1', text: "What Will Motivate You?") }
+        end
+      end
 
-    #   context "invalid information" do
-    #     it "does not create user" do
-    #     expect { click_button submit }.not_to change(User, :count)
-    #     end
+      context "invalid information" do
+        it "does not create user" do
+        expect { click_button submit }.not_to change(User, :count)
+        end
 
-    #     describe "after submission" do
-    #       before { click_button submit }
+        describe "after submission" do
+          before { click_button submit }
 
-    #       it { should have_title('Todo | Sign Up') }
-    #       it { should have_content('error') }
-    #     end
-    #   end
-    # end
+          it { should have_title('Life!Fuel | Sign Up') }
+          it { should have_content('error') }
+        end
+      end
+    end
   end
 
   # describe "show page GET /users/:id" do

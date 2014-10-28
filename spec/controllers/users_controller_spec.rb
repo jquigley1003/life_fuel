@@ -21,10 +21,9 @@ describe UsersController, type: :controller do
         }.to change(User, :count).by(1)
       end
 
-      it "redirects to :show" do
+      it "redirects to :search" do
         post :create, user: FactoryGirl.attributes_for(:user)
-        last_user = User.last
-        expect(response).to redirect_to(user_path(last_user.id))
+        expect(response).to redirect_to(search_path)
       end
     end
 
@@ -42,19 +41,19 @@ describe UsersController, type: :controller do
     end
   end
 
-  describe "GET show" do
-    User.destroy_all
+  # describe "GET show" do
+  #   User.destroy_all
 
-    let(:user) { FactoryGirl.create(:user) }
+  #   let(:user) { FactoryGirl.create(:user) }
 
-    it "renders show page" do
-      get :show, id: user.id
-      expect(response).to render_template(:show)
-    end
+  #   it "renders show page" do
+  #     get :show, id: user.id
+  #     expect(response).to render_template(:show)
+  #   end
 
-    it "assigns requested user to @user" do
-      get :show, id: user.id
-      assigns(:user).should eq(user)
-    end
-  end  
+  #   it "assigns requested user to @user" do
+  #     get :show, id: user.id
+  #     assigns(:user).should eq(user)
+  #   end
+  # end  
 end
