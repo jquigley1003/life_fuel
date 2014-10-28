@@ -36,6 +36,6 @@ Life!Fuel is a web application where a user can search for national and local ev
 
 ##Diagrams
 
-Below is the wireframes and ERD for Life!Fuel
-
-
+Below is the link to wireframes and the ERD for Life!Fuel<br /><br />
+[wireframe using Moqups](https://moqups.com/jquigley/WfiWzFQe/p:a3098c70c)<br /><br />
+![ERD](http://i.imgur.com/7723QlS.jpg)

@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  root 'static_pages#home'
+
+  resources :users,     only: [:create, :show]
+
+  match '/home',              to: 'static_pages#home',            via: 'get'
+  match '/search',            to: 'static_pages#search',          via: 'get'
+  match '/favorites',         to: 'static_pages#favorites',       via: 'get'
+  match '/signup',            to: 'users#new',                    via: 'get'
+  match '/search_results',    to: 'static_pages#search_results',  via: 'get'
+  match '/event_details',     to: 'static_pages#event_details',   via: 'get'
+ 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
