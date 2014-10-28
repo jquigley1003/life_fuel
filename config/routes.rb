@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
-  root 'static_pages#home'
+  root 'sessions#new'
 
   resources :users,     only: [:create, :show]
+  resources :sessions,  only: [:create, :destroy]
 
-  match '/home',              to: 'static_pages#home',            via: 'get'
+  match '/home',              to: 'sessions#new',                 via: 'get'
   match '/search',            to: 'static_pages#search',          via: 'get'
   match '/favorites',         to: 'static_pages#favorites',       via: 'get'
   match '/signup',            to: 'users#new',                    via: 'get'
+  match '/signin',            to: 'sessions#new',                 via: 'get'
   match '/search_results',    to: 'static_pages#search_results',  via: 'get'
   match '/event_details',     to: 'static_pages#event_details',   via: 'get'
  
