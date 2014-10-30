@@ -1,0 +1,25 @@
+<% provide(:title, "Events List") %>
+<h1>Life Happens Now - Be In It.</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+
+<div style="background-color: #aaf">
+<% unless @results.nil? %>
+  <% @results["events"]["event"].each do |event| %>
+  <div style="background-color: #fff">
+    <div style="float: right">
+    <%= link_to "Add Favorites", events_path(trail: { activity_type_name: activity["activity_type_name"], city: place["city"],  state: place["state"], description: activity["description"].gsub("&quot;", '"') } ), method: :post %>
+    </div>
+    <div style="float: right"><a href="/details" id="<% event["id"] %>">Details</a></div>
+    <%# thumb = event["image"]["medium"]["url"] %>
+    <!-- <%# thumb.nil? <img src="http://i.imgur.com/XocAR2Jl.jpg" /> : <img src=" thumb " /> %> -->
+    <p><%= event["title"] %></p>
+    <p><%= event["venue_address"] %></p>
+    <p><%= event["city_name"] %></p>
+    <p><%= event["region_name"] %></p>
+    <p><%= event["start_time"] %></p>
+    <p><%= event["venue_name"] %></p>
+    <p><%= event["description"] %></p>
+  </div>
+  <% end %>
+<% end %>
+</div>

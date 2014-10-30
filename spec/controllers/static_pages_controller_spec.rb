@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-describe StaticPagesController, type: :controller do
-  describe "search" do
+describe StaticPagesController, type: :controller do describe "search" do
     it "renders search" do
       get :search
       expect(response).to render_template(:search)

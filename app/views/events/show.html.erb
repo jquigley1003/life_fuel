@@ -1,0 +1,16 @@
+<% provide(:title, "Event Details") %>
+<h1>Event Details</h1>
+<p>Find me in app/views/events/show.html.erb</p>
+
+<%= form_tag events_path, :method => 'get' do %>
+    <%= label_tag(:event, "Event Mood:") %>
+    <%= text_field_tag :event, params[:event] %><br /><br />    
+    <%= label_tag(:location, "Location:") %>
+    <%= text_field_tag :location, params[:location] %><br /><br />
+    <%= label_tag(:time, "Time:") %>
+    <%= text_field_tag :time, params[:time] %><br /><br />
+    <%= label_tag(:category, "Category:") %>
+    <%= text_field_tag :category, params[:category] %><br /><br />
+    <%= submit_tag "Search" %>
+<% end %>
+<br>
