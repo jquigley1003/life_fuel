@@ -26,12 +26,12 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  def sign_out(user)
-    # delete the cookie on their computer
+  
+
+  def sign_out
     current_user.update_attribute(:remember_token,
-                                  User.digest(User.new_remember_token))
+                  User.digest(User.new_remember_token))
     cookies.delete(:remember_token)
-    # delete any record of a cookie in our database
     self.current_user = nil
   end
 

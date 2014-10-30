@@ -3,18 +3,20 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resources :users,     only: [:create, :show]
-  resources :sessions,  only: [:create, :destroy]
+  resources :sessions,  only: [:new, :create, :destroy]
   resources :events,    only: [:new, :create, :show, :destroy, :index]
+  resources :favorites, only: [:new, :create, :show, :destroy, :index]
 
   match '/home',              to: 'sessions#new',                 via: 'get'
   match '/search',            to: 'events#search',                via: 'get'
   match '/details',           to: 'events#show',                  via: 'get' 
-  match '/favorites',         to: 'static_pages#favorites',       via: 'get'
+  match '/favorites',         to: 'favorites#index',              via: 'get'
   match '/signup',            to: 'users#new',                    via: 'get'
   match '/signin',            to: 'sessions#new',                 via: 'get'
+  match '/signout',           to: 'sessions#destroy',             via: 'delete'
   match '/search_results',    to: 'static_pages#search_results',  via: 'get'
   match '/event_details',     to: 'static_pages#event_details',   via: 'get'
-  match '/results',           to: 'events#index',               via: 'get'
+  match '/results',           to: 'events#index',                 via: 'get'
 
  
 

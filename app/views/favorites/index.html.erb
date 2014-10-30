@@ -1,0 +1,16 @@
+<div style="background-color: #fff">
+
+  <% @current_user_events.each do |event| %>
+
+  <div style="float: right">
+  <%= link_to "delete", event, method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+
+  <div style="background-color: #aaf">
+    <p><%= event.title %></p>
+    <p><%= event.date %></p>
+    <p><%= event.location %></p>
+    <p><%= event.description %></p>
+  </div>
+  <% end %>
+</div>

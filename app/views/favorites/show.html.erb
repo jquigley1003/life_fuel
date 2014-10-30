@@ -1,0 +1,17 @@
+<% provide(:title, "Favorites") %>
+<h1>My Favorites</h1>
+
+<div style="background-color: #aaf">
+<% unless @user_favorites.nil? %>
+  <% @user_favorites.each do |event| %>
+  <div style="background-color: #fff">
+    <div style="float: right">
+   <!--  <%# link_to "Add to favorites", events_path(event: { title: event["title"], venue_id: event["id"],  location: event["region_name"], date: event["start_time"], description: event["description"] } ), method: :post %> -->
+    </div>
+    <p><%= event.title %></p>
+    <p><%= event.location %></p>
+    <p><%= event.description %></p>
+  </div>
+  <% end %>
+<% end %>
+</div>

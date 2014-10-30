@@ -6,19 +6,26 @@
 <% unless @results.nil? %>
   <% @results["events"]["event"].each do |event| %>
   <div style="background-color: #fff">
+    
     <div style="float: right">
-    <%= link_to "Add Favorites", events_path(trail: { activity_type_name: activity["activity_type_name"], city: place["city"],  state: place["state"], description: activity["description"].gsub("&quot;", '"') } ), method: :post %>
+    <%= form_for(:event, url: events_path) do |f| %>
+      <%= f.hidden_field :title, value: event["title"] %>
+      <%= f.hidden_field :venue_id, value: event["id"] %>
+      <%= f.hidden_field :location, value: event["region_name"] %>
+      <%= f.hidden_field :date, value: event["start_time"] %>
+      <%= f.hidden_field :description, value: event["description"] %>
+      <%= f.submit "Add to Favorites" %>
+    <% end %>
     </div>
-    <div style="float: right"><a href="/details" id="<% event["id"] %>">Details</a></div>
-    <%# thumb = event["image"]["medium"]["url"] %>
-    <!-- <%# thumb.nil? <img src="http://i.imgur.com/XocAR2Jl.jpg" /> : <img src=" thumb " /> %> -->
-    <p><%= event["title"] %></p>
-    <p><%= event["venue_address"] %></p>
-    <p><%= event["city_name"] %></p>
-    <p><%= event["region_name"] %></p>
-    <p><%= event["start_time"] %></p>
-    <p><%= event["venue_name"] %></p>
-    <p><%= event["description"] %></p>
+
+    <p><%= event["image"].nil? ? image_tag("http://i.imgur.com/HON6vfYs.jpg") : image_tag(event["image"]["medium"]["url"]) %></p>
+    <p><%= event["title"].nil? ? "N/A" : event["title"] %></p>
+    <p><%= event["venue_address"].nil? ? "N/A" : event["venue_address"] %></p>
+    <p><%= event["city_name"].nil? ? "N/A" : event["city_name"] %></p>
+    <p><%= event["region_name"].nil? ? "N/A" : event["region_name"] %></p>
+    <p><%= event["start_time"].nil? ? "N/A" : event["start_time"] %></p>
+    <p><%= event["venue_name"].nil? ? "N/A" : event["venue_name"] %></p>
+    <p><%= event["description"].nil? ? "N/A" : event["description"] %></p>
   </div>
   <% end %>
 <% end %>
