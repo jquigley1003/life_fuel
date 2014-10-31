@@ -1,11 +1,11 @@
 <% provide(:title, "Events List") %>
-<h1>Life Happens Now - Be In It.</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="jumbotron div_bg_light_wide">
+<h1>Life Happens Now<br />Be In It.</h1>
 
-<div style="background-color: #aaf">
+<div>
 <% unless @results.nil? %>
   <% @results["events"]["event"].each do |event| %>
-  <div style="background-color: #fff">
+  <div>
     
     <div style="float: right">
     <%= form_for(:event, url: events_path) do |f| %>
@@ -29,4 +29,5 @@
   </div>
   <% end %>
 <% end %>
+</div>
 </div>

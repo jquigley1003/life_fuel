@@ -1,6 +1,6 @@
 <% provide(:title, "Search Events") %>
+<div class="jumbotron div_bg_light">
 <h1>What Will Motivate You?</h1>
-<p>Find me in app/views/events/search.html.erb</p>
 
 <%= form_tag events_path, :method => 'get' do %>
     <%= label_tag(:event, "Event Mood:") %>
@@ -13,5 +13,5 @@
     <%= text_field_tag :category, params[:category] %><br /><br />
     <%= submit_tag "Search" %>
 <% end %>
-<br>
+</div>
 

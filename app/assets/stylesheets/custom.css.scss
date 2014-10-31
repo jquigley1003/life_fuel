@@ -1,1 +1,22 @@
-@import "bootstrap"
+@import "bootstrap";
+
+.new_background {
+  background-image: url('http://i.imgur.com/0GDxQp2.jpg');
+}
+
+.div_bg_light {
+  width: 50%;
+  background-color: rgba(255,255,255,0.5);
+  padding: 0px;
+  margin: 150px auto;
+  text-align: center;
+}
+
+.div_bg_light_wide {
+  width: 90%;
+  background-color: rgba(255,255,255,0.5);
+  border-top: 2px solid black;  
+  padding: 0px;
+  margin: 5px auto;
+  text-align: left;
+}
