@@ -8,8 +8,8 @@
 Life!Fuel is a web application where a user can search for national and local events, based upon  category, location, time, and other event detail. After choosing an event from the results page, the event detail page will appear, along with any relevant Tweets regarding that event. A user will be able to save events to a favorites list, and have the option to delete individual or all events.
 
 ##Links
-* Heroku Page
-* Trello Board
+* [Heroku Site](https://life-fuel.herokuapp.com/ "Heroku Site")
+* [Trello Board](https://trello.com/b/55QSzES0/life-fuel "Trello Board")
 * [GitHub-jquigley1003](https://github.com/jquigley1003/life_fuel "Github-jquigle1003")
 
 ##User Stories

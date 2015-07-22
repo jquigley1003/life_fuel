@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
 
-  resources :users,     only: [:create, :show]
+  resources :users,     only: [:new, :create, :show]
   resources :sessions,  only: [:new, :create, :destroy]
   resources :events,    only: [:new, :create, :show, :destroy, :index]
   resources :favorites, only: [:new, :create, :show, :destroy, :index]

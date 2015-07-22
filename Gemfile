@@ -35,6 +35,8 @@ gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 
 gem 'bcrypt-ruby', '3.1.2'
+gem 'oauth'
+gem 'json'
 
 group :development, :test do
   gem 'rspec-rails', '3.1.0'

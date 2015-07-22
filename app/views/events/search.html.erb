@@ -1,16 +1,17 @@
 <% provide(:title, "Search Events") %>
 <div class="jumbotron div_bg_light">
 <h1>What Will Motivate You?</h1>
+<p>Only enter one(1) word in each field</p>
 
-<%= form_tag events_path, :method => 'get' do %>
+<%= form_tag events_path, :class => "form-group", :method => 'get' do %>
     <%= label_tag(:event, "Event Mood:") %>
-    <%= text_field_tag :event, params[:event] %><br /><br />    
+    <%= text_field_tag :event, params[:event], :class => "form-control" %><br />    
     <%= label_tag(:location, "Location:") %>
-    <%= text_field_tag :location, params[:location] %><br /><br />
+    <%= text_field_tag :location, params[:location], :class => "form-control" %><br />
     <%= label_tag(:time, "Time:") %>
-    <%= text_field_tag :time, params[:time] %><br /><br />
+    <%= text_field_tag :time, params[:time], :class => "form-control" %><br />
     <%= label_tag(:category, "Category:") %>
-    <%= text_field_tag :category, params[:category] %><br /><br />
+    <%= text_field_tag :category, params[:category], :class => "form-control" %><br />
     <%= submit_tag "Search" %>
 <% end %>
 </div>

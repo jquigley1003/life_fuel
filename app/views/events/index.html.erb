@@ -29,5 +29,12 @@
   </div>
   <% end %>
 <% end %>
+<% unless @twitter_results.nil? %>
+  <% @twitter_results.each do |tweet| %>
+  <div>
+    <p><%= tweet["text"] %></p>
+  </div>
+  <% end %>
+<% end %>
 </div>
 </div>

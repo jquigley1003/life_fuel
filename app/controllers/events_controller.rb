@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   def search
     @results = Event.party(params[:event], params[:location],
                           params[:time], params[:category])
+    @twitter_results = Event.twitter_search(response)
   end
   
   # GET /events
@@ -12,6 +13,9 @@ class EventsController < ApplicationController
     party_results = Event.party(params[:event], params[:location],
                           params[:time], params[:category])
     @results = JSON.parse(party_results)
+
+    # twitter_results = Event.twitter_search(params[:event])
+    # @twitter_results = Event.twitter_search(response)
     # Event.create
   end
 
@@ -47,6 +51,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to favorites_path notice: "You deleted an event from your favorites"
+  end
+
+  def twitter_search
+    twitter_results = nil
   end
 
     private
